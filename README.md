@@ -17,7 +17,7 @@ Berdasarkan uraian di atas, beberapa pertanyaan utama yang ingin dijawab dalam p
 -  Bagaimana model tersebut dapat diimplementasikan secara nyata untuk membantu petani dan distributor dalam mengoptimalkan kualitas serta nilai jual apel?
 ### Goals
 Tujuan dari proyek ini meliputi:
-- Mengembangkan model machine learning yang mampu memprediksi kualitas apel berdasarkan data visual dan sensorik.
+- Mengembangkan model machine learning yang mampu memprediksi kualitas apel berdasarkan data data kuantitatif.
 - Membandingkan beberapa algoritma model untuk menemukan akurasi terbaik dalam memprediksi kualitas apel.
 - Mengembangkan sebuah sistem atau aplikasi sederhana yang dapat dimanfaatkan oleh petani dan distributor sebagai alat bantu dalam menilai dan memasarkan produk apel secara lebih efisien.
 
