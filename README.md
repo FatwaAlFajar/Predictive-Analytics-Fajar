@@ -12,7 +12,7 @@ Sebagai salah satu produsen utama apel di kawasan Asia Tenggara, Indonesia mengh
 Pengembangan model prediksi untuk menilai kualitas apel memiliki potensi besar dalam memberikan dampak positif bagi berbagai pihak, khususnya petani dan distributor. Dengan bantuan model ini, proses panen dapat menjadi lebih efisien, nilai jual apel dapat meningkat, dan kepercayaan konsumen terhadap produk juga bisa lebih terjaga. Sebagai contoh, prediksi yang akurat terkait kualitas apel akan membantu petani dalam proses klasifikasi hasil panen dan dalam menetapkan harga jual yang sesuai di pasar.
 ### Problem Statements
 Berdasarkan uraian di atas, beberapa pertanyaan utama yang ingin dijawab dalam proyek ini antara lain:
--  Bagaimana merancang model machine learning yang mampu memprediksi kualitas apel berdasarkan data karakteristik visual dan sensorik?
+-  Bagaimana merancang model machine learning yang mampu memprediksi kualitas apel berdasarkan data kuantitatif
 -  Algoritma pembelajaran mesin apa yang memberikan performa prediksi terbaik?
 -  Bagaimana model tersebut dapat diimplementasikan secara nyata untuk membantu petani dan distributor dalam mengoptimalkan kualitas serta nilai jual apel?
 ### Goals
@@ -23,7 +23,7 @@ Tujuan dari proyek ini meliputi:
 
 ### Solution Statements
 Untuk menjawab permasalahan yang telah dirumuskan, solusi yang diusulkan dalam proyek ini meliputi:
-- Mengembangkan model machine learning yang mampu mengklasifikasikan kualitas apel berdasarkan data visual dan sensorik.
+- Mengembangkan model machine learning yang mampu mengklasifikasikan kualitas apel berdasarkan data kuantitatif
 - Melakukan evaluasi terhadap beberapa algoritma machine learning untuk menentukan model dengan akurasi terbaik dalam memprediksi kualitas apel.
 - Menerapkan beberapa metode pembelajaran mesin, antara lain:
     * K-Nearest Neighbor (KNN)
