@@ -1,6 +1,6 @@
 # Laporan Proyek Machine Learning - Muhammad Nurul Fatwa Al Fajar
 ## Domain Proyek
-Proyek machine learning ini berfokus pada bidang **Holtikultura/Pertanian Apel/Pertanian**, dengan judul **Proyek Pertama : Predictive Analytics**
+Proyek machine learning ini berfokus pada bidang **Holtikultura/Pertanian Apel/Pertanian**, dengan judul **Proyek Pertama : Prediksi Apel**
 
 ### Latar Belakang
 
