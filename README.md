@@ -31,10 +31,7 @@ Untuk menjawab permasalahan yang telah dirumuskan, solusi yang diusulkan dalam p
     * Random Forest
       adalah algoritma machine learning yang kuat yang dapat digunakan untuk berbagai tugas termasuk regresi dan klasifikasi. Ini adalah metode ensemble, yang berarti bahwa model random forest terdiri dari banyak decision tree kecil, yang
       disebut estimator, yang masing-masing menghasilkan prediksi mereka sendiri. Random forest menggabungkan prediksi estimator untuk menghasilkan prediksi yang lebih akurat .[[4](https://www.ibm.com/think/topics/random-forest)]
-    * Support Vector Machine (SVM)
-      Algoritma klasifikasi yang berusaha menemukan hyperplane terbaik yang memisahkan data dari berbagai kelas dengan margin maksimal.[[5](https://www.ibm.com/id-id/think/topics/support-vector-machine)]
     * Naive Bayes adalah Model klasifikasi berbasis probabilistik yang mengasumsikan independensi antar fitur, dan memanfaatkan prinsip Teorema Bayes untuk prediksi.[[6](https://docs.rapidminer.com/latest/studio/operators/modeling/predictive/bayesian/naive_bayes.html#:~:text=Naive%20Bayes%20is%20a%20high,sentiment%20analysis%2C%20and%20recommender%20systems.)]
-    * Extra trees classifier Variasi dari Random Forest yang membangun pohon keputusan secara acak untuk menghasilkan klasifikasi dengan kecepatan dan akurasi yang baik.[[7](https://medium.com/@samybaladram/extra-trees-explained-a-visual-guide-with-code-examples-4c2967cedc75)]
 
 ## Data Understanding
 ### EDA - Deskripsi Variabel
@@ -290,8 +287,4 @@ Diharapkan dengan model KNN yang telah dikembangkan, sistem mampu memberikan pre
 
 4. What Is Random Forest?  https://www.ibm.com/think/topics/random-forest
 
-5. Apa Itu Support Vector Machine?  https://www.ibm.com/id-id/think/topics/support-vector-machine
-
-6. Naive Bayes https://docs.rapidminer.com/latest/studio/operators/modeling/predictive/bayesian/naive_bayes.html#:~:text=Naive%20Bayes%20is%20a%20high,sentiment%20analysis%2C%20and%20recommender%20systems.
-
-7. Extra Trees, Explained: A Visual Guide with Code Examples https://medium.com/@samybaladram/extra-trees-explained-a-visual-guide-with-code-examples-4c2967cedc75
+5. Naive Bayes https://docs.rapidminer.com/latest/studio/operators/modeling/predictive/bayesian/naive_bayes.html#:~:text=Naive%20Bayes%20is%20a%20high,sentiment%20analysis%2C%20and%20recommender%20systems.
