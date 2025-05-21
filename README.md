@@ -125,7 +125,7 @@ Fitur numerik lainnya seperti Weight, Sweetness, Crunchiness, Juiciness, Ripenes
 
 Gambar 2a. Analisis Multivariat
 
-![Multivariate Analysis](assets/Multivariate_Analysis.png)
+![Multivariate Analysis](assets/Matrix_Korelasi.png)
 
 Gambar 2b. Analisis Matriks Korelasi
 
