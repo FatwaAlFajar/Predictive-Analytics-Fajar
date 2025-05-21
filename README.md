@@ -202,24 +202,7 @@ Kelemahan KNN:
 - Waktu komputasi tinggi: Terutama pada dataset besar, karena seluruh dataset digunakan saat prediksi.
 - Pemilihan nilai K yang optimal: Nilai K yang terlalu kecil bisa menyebabkan overfitting, sedangkan nilai yang terlalu besar dapat menyebabkan underfitting.
 
-## 2. Support Vector Machine (SVM)
-
-Support Vector Machine (SVM) adalah algoritma machine learning yang digunakan untuk tugas klasifikasi maupun regresi. Algoritma ini bekerja dengan mencari hyperplane optimal yang memisahkan data dari dua kelas berbeda dengan margin maksimum, sehingga meminimalkan kesalahan klasifikasi. Pada proyek ini, SVM digunakan dengan parameter default dari library scikit-learn, yang secara umum menggunakan kernel RBF (Radial Basis Function).
-
-Keunggulan SVM:
-
-- Akurasi tinggi: Sangat baik dalam menangani klasifikasi pada dataset yang kompleks.
-- Mampu mengatasi dimensi tinggi: Cocok untuk dataset dengan banyak fitur (high-dimensional space).
-- Relatif robust terhadap overfitting, terutama pada data dengan margin jelas antar kelas.
-- Dapat digunakan baik untuk klasifikasi maupun regresi.
-
-Kelemahan SVM:
-
-- Pemilihan kernel dan parameter: Memilih jenis kernel (linear, poly, rbf, dll) dan parameter seperti C dan gamma dapat mempengaruhi performa secara signifikan.
-- Waktu pelatihan lama: Terutama pada dataset besar atau berdimensi tinggi.
-- Sensitif terhadap outlier, meskipun secara teori lebih tahan dibanding KNN.
-
-## 3. Random Forest
+## 2. Random Forest
 
 Random Forest adalah algoritma ensemble learning yang membangun sejumlah Decision Tree secara acak, lalu menggabungkan hasilnya melalui voting (untuk klasifikasi) atau rata-rata (untuk regresi). Tujuan utama dari pendekatan ini adalah untuk meningkatkan akurasi dan stabilitas model, sekaligus mengurangi risiko overfitting yang sering terjadi pada decision tree tunggal.
 
@@ -238,31 +221,7 @@ Kelemahan Random Forest:
 - Waktu pelatihan dan prediksi lebih lama, apalagi jika jumlah pohon besar.
 - Kurang interpretatif: Sulit untuk memahami kontribusi tiap fitur dalam prediksi akhir secara langsung.
 
-## 4. Extra Trees Classifier
-
-Extra Trees Classifier (Extremely Randomized Trees) adalah algoritma ensemble learning yang digunakan untuk tugas klasifikasi. Algoritma ini merupakan varian dari Random Forest, namun dengan dua perbedaan utama:
-
-- Random Splitting: Pemisahan fitur dilakukan secara acak, bukan berdasarkan pencarian split terbaik.
-- Tanpa Bagging: Data tidak di-bootstrap atau diambil secara acak dengan pengembalian, melainkan menggunakan seluruh dataset saat membangun setiap pohon.
-
-Keunggulan Extra Trees Classifier:
-
-- Lebih tahan terhadap overfitting dibandingkan Random Forest, terutama pada dataset berdimensi tinggi.
-- Cepat dalam pelatihan, karena tidak mencari split optimal di setiap node.
-- Kinerja baik pada berbagai kasus klasifikasi, terutama saat fitur memiliki hubungan non-linear.
-
-Kelemahan Extra Trees Classifier:
-- Akurasi bisa sedikit lebih rendah dibanding Random Forest pada dataset tertentu.
-- Masih memerlukan sumber daya komputasi besar, terutama saat jumlah pohon (n_estimators) banyak.
-
-Parameter yang digunakan:
-
-- n_estimators: Jumlah pohon keputusan yang dibangun dalam ensemble.
-- random_state: Untuk kontrol pengacakan agar hasil bisa direproduksi.
-- max_depth: Kedalaman maksimum pohon.
-- n_jobs: Jumlah core CPU yang digunakan secara paralel untuk mempercepat pelatihan.
-
-## 5. Naïve Bayes Classifier
+## 3. Naïve Bayes Classifier
 
 Naïve Bayes Classifier adalah algoritma klasifikasi berbasis teorema Bayes, yang mengasumsikan bahwa setiap fitur (variabel) bersifat independen terhadap fitur lainnya. Meskipun asumsi ini seringkali tidak realistis dalam praktik, algoritma ini tetap menunjukkan performa yang baik dalam berbagai kasus, terutama untuk dataset yang besar dan sederhana.
 
