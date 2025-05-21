@@ -120,12 +120,12 @@ Fitur numerik lainnya seperti Weight, Sweetness, Crunchiness, Juiciness, Ripenes
 
 ### EDA - Multivariate Analysis
 
-![Multivariate Analysis](https://i.ibb.co/yNHmpNZ/EDA-MULTIVARIATE.png)
+![Multivariate Analysis](assets/Multivariate_Analysis.png)
 
 
 Gambar 2a. Analisis Multivariat
 
-![Multivariate Analysis](https://i.ibb.co/4gjnS4LC/image.png)
+![Multivariate Analysis](assets/Multivariate_Analysis.png)
 
 Gambar 2b. Analisis Matriks Korelasi
 
@@ -266,7 +266,7 @@ Berikut hasil accuracy 5 buah model yang latih:
 
 Tabel 3. Hasil Accuracy
 
-![Model](https://i.ibb.co/rGTCTGRW/Model.png)
+![Akurasi Model](assets/Akurasi_Model.png)
 
 Gambar 3. Visualisasi Accuracy Model
 
