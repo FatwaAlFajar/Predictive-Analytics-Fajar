@@ -4,6 +4,7 @@ Proyek machine learning ini berfokus pada bidang **Holtikultura/Pertanian Apel/P
 
 ### Latar Belakang
 
+
 ![foto apel](https://png.pngtree.com/thumb_back/fw800/background/20230730/pngtree-thousands-of-red-apples-stacked-up-in-piles-on-the-counter-image_10175220.jpg)
 
 Sebagai salah satu produsen utama apel di kawasan Asia Tenggara, Indonesia menghasilkan lebih dari 523.738 Ton pada Tahun 2022. Komoditas ini memiliki peranan penting, terutama dalam mendukung penghidupan petani lokal serta pertumbuhan sektor agrikultur nasional [[1](https://dataindonesia.id/agribisnis-kehutanan/detail/produksi-apel-di-indonesia-sebanyak-523738-ton-pada-2022)].Namun demikian, menjaga mutu apel tetap menjadi tantangan besar di industri ini. Kualitas yang menurun, misalnya karena ukuran yang terlalu kecil, tingkat kematangan yang tidak seragam, atau tekstur yang kurang renyah, dapat menurunkan nilai jual dan menyebabkan kerugian di berbagai lini distribusi. Dengan memanfaatkan pendekatan predictive analytics, pelaku industri apel dapat memperoleh gambaran prediktif terkait mutu buah[[2](https://www.researchgate.net/publication/378686300_Optimasi_Algoritma_Naive_Bayes_Untuk_Klasifikasi_Buah_Apel_Berdasarkan_Fitur_Warna_RGB/fulltext/65e46bc8adc608480af78397/Optimasi-Algoritma-Naive-Bayes-Untuk-Klasifikasi-Buah-Apel-Berdasarkan-Fitur-Warna-RGB.pdf?origin=scientificContributions)]. Teknologi ini membuka peluang untuk optimalisasi panen bagi petani, pengurangan limbah distribusi bagi penyalur, dan jaminan mutu bagi konsumen. Selain itu, prediksi berbasis data juga dapat membantu menciptakan kestabilan harga dan ketersediaan apel berkualitas di pasar.
@@ -66,10 +67,13 @@ Berikut Informasi Pada Dataset :
 - Dataset memiliki format CSV (Comma-Seperated Values).
 - Dataset memiliki 4001 sample dengan 9 fitur.
 - Dataset memiliki 7 fitur bertipe float64 dan 2 fitur bertipe object.
-- ada missing value pada dataset dan akan dihapus
+- ada 1 missing value pada dataset dan akan dihapus
 - ada 1 fitur yang tidak digunakan dan akan dihapus
 - 7 kolom memiliki tipe data numerik float64, yaitu: A_id, Size, Weight, Sweetness, Crunchiness, Juiciness, dan Ripeness.
 - 2 kolom lainnya bertipe data object, yaitu: Acidity dan Quality.
+- ada 210 outlier yang akan dihapus berdasarkan analisis IQR
+- Data Duplikat Tidak Ditemukan
+- **Kolom tidak relevan**: `A_id` dihapus karena hanya ID
   
 ### Variabel-variabel dalam Dataset
 - `A_id` : Merupakan identitas unik untuk masing-masing apel
@@ -86,11 +90,13 @@ Dari sembilan fitur yang tersedia dalam dataset, diketahui bahwa fitur A_id hany
 
 ### EDA - Univariate Analysis ( Analisis Univariat )
 
-![Analisis Univariat (Data Kategori)](https://i.ibb.co/0MRrJCC/jumlah-kualitas-datasets.png)
+![13f79c57-ec39-4f96-b371-e4bab4154ca5](https://github.com/user-attachments/assets/518521db-bf5b-475d-b7d9-153fd9218d49)
+
 
 Gambar 1a. Analisis Univariat (Data Bertipe Kategori) 
 
-![Univariate Analysis](https://i.ibb.co/V2mQ2dK/EDA-Univariate.png)
+![4f4fc852-43c2-47de-a33f-ca5cb4541a8c](https://github.com/user-attachments/assets/97684b43-aad0-479a-994f-399af7db3c73)
+
 
 Gambar 1b. Analisis Univariat (Data Bertipe Numerik) 
 
@@ -122,12 +128,12 @@ Fitur numerik lainnya seperti Weight, Sweetness, Crunchiness, Juiciness, Ripenes
 
 ### EDA - Multivariate Analysis
 
-![Multivariate Analysis](assets/Multivariate_Analysis.png)
+![Multivariate Analysis](https://github.com/FatwaAlFajar/Predictive_Analytics_Fajars/blob/main/assets/Multivariate_Analysis.png)
 
 
 Gambar 2a. Analisis Multivariat
 
-![Multivariate Analysis](assets/Matrix_Korelasi.png)
+![Multivariate Analysis](https://github.com/FatwaAlFajar/Predictive_Analytics_Fajars/blob/main/assets/Matrix_Korelasi.png)
 
 Gambar 2b. Analisis Matriks Korelasi
 
@@ -166,7 +172,7 @@ Ini dilakukan untuk memastikan kalau kolom A_id sudah dihapus dari Dataset
 
 | kode |
 | --- |
-| data.indo() |
+| data.info() |
 
 |Column |    Non-Null Count | Dtype  |
 | ------ | ------ |------ |
@@ -199,11 +205,6 @@ membuang nilai kosong
 | --- |
 |data_miss = data[data.isnull().any(axis=1)]
 data_miss|
-
-|     | Size | Weight | Sweetness | Crunchiness | Juiciness | Ripeness | Acidity | Quality |
-| ------ | ------ |------ | ------ | ------ | ------ |------ | ------ |------ |
-| 4000 | NaN | NaN | NaN |NaN | NaN| NaN	| Created_by_Nidula_Elgiriyewithana  | NaN |
-
 
 ### 4. Menghapus semua baris di dataframe data yang mengandung setidaknya satu nilai kosong (NaN).
 
@@ -240,7 +241,7 @@ Juiciness  |  4000 non-null  | float64|
 | ------ | ------ |------ |
 Ripeness  |   4000 non-null  | float64|
 | ------ | ------ |------ |
-Acidity   |   4001 non-null  | Float64 |
+Acidity   |   4000 non-null  | Float64 |
 | ------ | ------ |------ |
 |Quality|      4000 non-null  | object |
 
@@ -257,28 +258,9 @@ Terlihat bahwa terdapat 7 kolom bertipe data float64 dan 1 kolom bertipe object.
 |(4000, 8)|
 Setelah menghapus data yang tidak relevan sebelumnya, jumlah dataset kini menjadi 4000 yang awalnya 4001.
 
-### 7. Visualisasi Outlier
-Visualisasi Outlier digunakan untuk memberi gambaran bahwa masih ada data yang sekiranya jauh dari kata sempurna untuk pelatihan model dan melakukannya secara visual pada setiap fitur numerik
+### 7. Mengeliminasi Outlier dari Dataset
 
-|Code|
-| --- |
-|# Untuk mendeteksi outlier secara visual pada setiap fitur numerik.
-data_outlier = data.select_dtypes(exclude=['object'])
-for column in data_outlier:
-   plt.figure()
-   sns.boxplot(data=data_outlier, x=column)|
-
-![Outlier1](assets/Size.png)
-![Outlier2](assets/Weight.png)
-![Outlier3](assets/Sweetness.png)
-![Outlier4](assets/Crunchiness.png)
-![Outlier5](assets/Juiciness.png)
-![Outlier6](assets/Ripeness.png)
-![Outlier7](assets/Acidity.png)
-
-### 8. Mengeliminasi Outlier dari Dataset
-
-proses deteksi dan penanganan outlier juga dilakukan dengan metode dropping menggunakan pendekatan IQR (Interquartile Range). IQR digunakan untuk mengidentifikasi nilai-nilai ekstrem yang berada jauh dari sebaran data utama. Rumus perhitungannya adalah:
+Berdasarkan hasil deteksi sebelumnya, terdapat sekitar 210 outlier yang tersebar pada beberapa fitur numerik. Untuk menangani hal ini, digunakan metode IQR (Interquartile Range) yang efektif dalam mengidentifikasi nilai-nilai ekstrem di luar distribusi utama data. Rumus perhitungannya adalah:
 
 $$ IQR = Q_3 - Q_1$$
 
@@ -287,9 +269,9 @@ $$ IQR = Q_3 - Q_1$$
 
 Nilai yang berada di bawah ( Q1 - 1.5 x IQR ) atau di atas ( Q3 + 1.5 x IQR ) dianggap sebagai **outlier** dan akan dihapus dari dataset untuk menjaga kualitas dan konsistensi data selama proses pelatihan model.
 
-Setelah dilakukan penghapusan outlier menggunakan metode IQR (Interquartile Range), jumlah data pada dataset berkurang dari semula 4000 menjadi 3790 sampel. Pengurangan ini dilakukan untuk memastikan bahwa data yang digunakan dalam proses pelatihan dan pengujian model bersih dari nilai-nilai ekstrem yang dapat mengganggu kinerja model.
+Sebagai hasil dari proses ini, jumlah data berkurang dari 4000 menjadi 3790 baris. Langkah ini bertujuan untuk menjaga kualitas data dan memastikan performa model machine learning tetap optimal tanpa gangguan dari nilai-nilai ekstrem.
 
-### 9. Mengubah nilai di kolom Quality dari bentuk teks menjadi angka.
+### 8. Mengubah nilai di kolom Quality dari bentuk teks menjadi angka.
 
 |kode|
 | --- |
@@ -297,7 +279,7 @@ Setelah dilakukan penghapusan outlier menggunakan metode IQR (Interquartile Rang
 data['Quality'] = data['Quality'].apply(lambda x: 1 if x == 'good' else 0)  # good:1 , bad:0 |
 
 
-### 10. memisahkan data fitur dan label sebelum melakukan pelatihan
+### 9. memisahkan data fitur dan label sebelum melakukan pelatihan
 |kode|
 | --- |
 |# Untuk memisahkan data fitur dan label sebelum melakukan pelatihan model machine learning.
@@ -311,7 +293,7 @@ x.shape, y.shape|
 
 Kode tersebut digunakan untuk memisahkan fitur (X) dan label/target (y) dari sebuah dataset sebelum model machine learning dilatih.
 
-### 11. Train-Test-Split
+### 10. Train-Test-Split
 
 | kode |
 | --- |
@@ -320,7 +302,7 @@ Kode tersebut digunakan untuk memisahkan fitur (X) dan label/target (y) dari seb
 
 Selanjutnya, dilakukan pembagian data menjadi data latih dan data uji menggunakan fungsi train_test_split dari library sklearn.model_selection. Pembagian dilakukan dengan proporsi 80% untuk data latih dan 20% untuk data uji, serta menggunakan nilai random_state=60 agar hasil pembagian data dapat direproduksi secara konsisten.
 
-### 12. Normalisasi
+### 11. Normalisasi
 |kode|
 | --- |
 |# Normalisasi fitur menggunakan Min-Max Scaling|
@@ -424,7 +406,7 @@ Berikut hasil accuracy 3 buah model yang latih:
 
 Tabel 3. Hasil Accuracy
 
-![Akurasi Model](assets/Akurasi_Model.png)
+![Akurasi Model](https://github.com/FatwaAlFajar/Predictive_Analytics_Fajars/blob/main/assets/Akurasi_Model.png)
 
 Gambar 3. Visualisasi Accuracy Model
 
